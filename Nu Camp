@@ -1,0 +1,79 @@
+wizard = "Wizard"
+elf = "Elf"
+human = "Human"
+demon = "Demon"
+wizard_hp = 70
+elf_hp = 100
+human_hp = 150
+demon_hp = 200
+wizard_damage = 150
+elf_damage = 100
+human_damage = 20
+demon_damage = 250
+
+
+dragon_hp = 300
+dragon_damage = 50
+while True:
+    while True:
+        print("1) Wizard")
+        print("2) Elf")
+        print("3) Human")
+        print("4) Demon")
+        choice = input("Choose your character: ")
+        if choice == "Wizard":
+            my_hp = wizard_hp
+            my_damage = wizard_damage
+            break
+        elif choice == "Elf":
+            my_hp = elf_hp
+            my_damage = elf_damage
+            break
+        elif choice == "Human":
+            my_hp = human_hp
+            my_damage = human_damage
+            break
+        elif choice == "Demon":
+            my_hp = demon_hp
+            my_damage = demon_damage
+            break
+        else:
+            print("Unknown Character")
+            break
+            
+
+    print(choice)
+
+    print(my_hp)
+
+    print(my_damage)
+
+    while True: 
+        dragon_hp -= my_damage
+        
+        if dragon_hp > 0:
+            print(f'{choice} damaged the dragon!')
+            print(f'The Dragon hitpoints are now {dragon_hp}')
+            
+        elif dragon_hp <= 0:
+            print('The Dragon lost the battle!')
+            break
+        my_hp -= dragon_damage
+
+        if my_hp > 0:
+            print(f'The Dragon strikes back at {choice}')
+            print(f'The {choice} hitpoints are now {my_hp}')
+            continue
+        elif my_hp <= 0:
+            print(f'The {choice} lost the battle!')
+            break
+    loopagain = input("Would you like to play again?")
+    if loopagain == "y" or loopagain == "yes":
+        continue
+        
+    elif loopagain == "n" or loopagain == "no":
+        print("Thank you for playing") 
+        quit()
+    else:
+        print("thank you for playing")
+        quit()
